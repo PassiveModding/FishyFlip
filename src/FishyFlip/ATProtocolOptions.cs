@@ -28,6 +28,7 @@ public class ATProtocolOptions
                 new AtHandlerJsonConverter(),
                 new AtDidJsonConverter(),
                 new FacetJsonConverter(),
+                new CidConverter(),
             },
         };
     }

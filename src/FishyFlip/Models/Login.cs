@@ -2,7 +2,7 @@
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
-namespace FishyFlip.Commands;
+namespace FishyFlip.Models;
 
 public record Login(string Identifier, string Password)
 {

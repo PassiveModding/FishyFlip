@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishyFlip.DebugApp", "FishyFlip.DebugApp\FishyFlip.DebugApp.csproj", "{FEFC5C5A-999E-407A-8E56-9EEC1C08F071}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishyFlip", "FishyFlip\FishyFlip.csproj", "{55FF025E-C24E-489A-85BA-370306BF522B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishyFlip", "FishyFlip\FishyFlip.csproj", "{55FF025E-C24E-489A-85BA-370306BF522B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

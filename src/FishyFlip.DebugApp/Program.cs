@@ -9,7 +9,6 @@ using System.Text;
 using System.Text.Json;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using FishyFlip;
-using FishyFlip.Commands;
 using FishyFlip.DebugApp;
 using FishyFlip.Models;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,7 +29,7 @@ string userName = Environment.GetEnvironmentVariable("BLUESKY_USERNAME")!;
 string password = Environment.GetEnvironmentVariable("BLUESKY_PASSWORD")!;
 
 Login command = new(userName, password);
-Result<Session> result = await atProtocol.LoginAsync(command, CancellationToken.None);
+Result<Session> result = await atProtocol.LoginAsync(userName, password, CancellationToken.None);
 
 await result.SwitchAsync(
     async session =>

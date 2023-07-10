@@ -5,7 +5,6 @@
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Threading;
-using FishyFlip.Commands;
 using FishyFlip.Models;
 using FishyFlip.Tools;
 using Microsoft.Extensions.Logging;
@@ -29,10 +28,10 @@ public sealed class ATProtocol : IAsyncDisposable, IDisposable
 
     internal HttpClient Client => this.client;
 
-    public async Task<Result<Session>> LoginAsync(Login command, CancellationToken cancellationToken = default)
+    public async Task<Result<Session>> LoginAsync(string Identifier, string Password, CancellationToken cancellationToken = default)
     {
         Result<Session> result =
-            await this.client.Post<Login, Session>(Constants.Urls.AtProtoServer.Login, this.options.JsonSerializerOptions, command, cancellationToken);
+            await this.client.Post<Login, Session>(Constants.Urls.AtProtoServer.Login, this.options.JsonSerializerOptions, new Login(Identifier, Password), cancellationToken);
 
         return
             result
@@ -149,7 +148,7 @@ public sealed class ATProtocol : IAsyncDisposable, IDisposable
     }
 
     public Task<Result<CreatePostResponse>> CreateRepostAsync(
-        string cid,
+        Cid cid,
         AtUri uri,
         DateTime? createdAt = null,
         CancellationToken cancellationToken = default)
@@ -176,7 +175,7 @@ public sealed class ATProtocol : IAsyncDisposable, IDisposable
     }
 
     public Task<Result<CreatePostResponse>> CreateLikeAsync(
-        string cid,
+        Cid cid,
         AtUri uri,
         DateTime? createdAt = null,
         CancellationToken cancellationToken = default)
@@ -233,7 +232,7 @@ public sealed class ATProtocol : IAsyncDisposable, IDisposable
                 error => error!);
     }
 
-    public async Task<Result<RepostedFeed>> GetRepostedByAsync(AtUri uri, int limit = 50, string? cid = default,
+    public async Task<Result<RepostedFeed>> GetRepostedByAsync(AtUri uri, int limit = 50, Cid? cid = default,
         string? cursor = default, CancellationToken cancellationToken = default)
     {
         string url = $"{Constants.Urls.Bluesky.GetRepostedBy}?uri={uri.ToString()}&limit={limit}";
@@ -314,7 +313,7 @@ public sealed class ATProtocol : IAsyncDisposable, IDisposable
         return this.client.Get<Profile>(url, this.options.JsonSerializerOptions, cancellationToken, this.options.Logger);
     }
 
-    public async Task<Result<LikesFeed>> GetLikesAsync(AtUri uri, int limit = 50, string? cid = default, string? cursor = default, CancellationToken cancellationToken = default)
+    public async Task<Result<LikesFeed>> GetLikesAsync(AtUri uri, int limit = 50, Cid? cid = default, string? cursor = default, CancellationToken cancellationToken = default)
     {
         string url = $"{Constants.Urls.Bluesky.GetLikes}?uri={uri.ToString()}&limit={limit}";
 

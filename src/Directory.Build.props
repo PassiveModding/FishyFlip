@@ -38,6 +38,7 @@
 		<ItemGroup Condition="@(InternalsVisibleToSuffix->Count()) == 0 AND @(InternalsVisibleTo->Count()) == 0">
 			<InternalsVisibleToSuffix Include=".Tests" />
 			<InternalsVisibleToSuffix Include=".DebugApp" />
+			<InternalsVisibleToSuffix Include=".Sync" />
 		</ItemGroup>
 
 		<!-- Handle InternalsVisibleTo -->

@@ -6,4 +6,4 @@ namespace FishyFlip.Models;
 
 public record Reply(ReplyRef Root, ReplyRef Parent);
 
-public record ReplyRef(string Cid, AtUri Uri);
+public record ReplyRef(Cid Cid, AtUri Uri);

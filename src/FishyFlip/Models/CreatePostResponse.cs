@@ -9,13 +9,13 @@ namespace FishyFlip.Models;
 public class CreatePostResponse
 {
     [JsonConstructor]
-    public CreatePostResponse(AtUri uri, string cid)
+    public CreatePostResponse(AtUri uri, Cid cid)
     {
         this.Cid = cid;
         this.Uri = uri;
     }
 
-    public string Cid { get; }
+    public Cid Cid { get; }
 
     public AtUri Uri { get; }
 }
@@ -23,13 +23,13 @@ public class CreatePostResponse
 public class PutPostResponse
 {
     [JsonConstructor]
-    public PutPostResponse(AtUri uri, string cid)
+    public PutPostResponse(AtUri uri, Cid cid)
     {
         this.Cid = cid;
         this.Uri = uri;
     }
 
-    public string Cid { get; }
+    public Cid Cid { get; }
 
     public AtUri Uri { get; }
 }

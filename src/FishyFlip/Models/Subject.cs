@@ -6,7 +6,7 @@ namespace FishyFlip.Models;
 
 public class Subject
 {
-    public string Cid { get; set; }
+    public Cid Cid { get; set; }
 
     public string Uri { get; set; }
 }
