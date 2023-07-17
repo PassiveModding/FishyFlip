@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishyFlip", "..\..\src\FishyFlip\FishyFlip.csproj", "{FD40D754-4664-4884-BA65-D26FB4243971}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fxbsky", "Fxbsky.csproj", "{1C9BF1F4-5ADC-4DE1-B505-9B77F66CC6E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD40D754-4664-4884-BA65-D26FB4243971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD40D754-4664-4884-BA65-D26FB4243971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD40D754-4664-4884-BA65-D26FB4243971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD40D754-4664-4884-BA65-D26FB4243971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C9BF1F4-5ADC-4DE1-B505-9B77F66CC6E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C9BF1F4-5ADC-4DE1-B505-9B77F66CC6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C9BF1F4-5ADC-4DE1-B505-9B77F66CC6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C9BF1F4-5ADC-4DE1-B505-9B77F66CC6E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0372ED55-4954-4F19-85FF-FEB8FC7CB151}
+	EndGlobalSection
+EndGlobal

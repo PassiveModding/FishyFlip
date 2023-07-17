@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="{{{RedirectUrl}}}" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="#0085ff" name="theme-color" />
+    <meta property="og:site_name" content="Fxbsky" />
+    <meta name="twitter:site" content="@{{Handle}}" />
+    <meta name="twitter:creator" content="@{{Handle}}" />
+    <meta name="twitter:title" content="{{Author}} - {{Handle}}" />
+    <meta property="og:description" content="{{Text}}" />
+
+    {{#if OnlyText}}
+    <meta property="og:image" content="{{{AvatarUrl}}}" />
+    <meta property="twitter:image" content="0" />
+    {{else}}
+    {{#Images}}
+    <meta property="twitter:image" content="{{{Link}}}" />
+    <meta property="og:image" content="{{{Link}}}" />
+    {{{/Images}}}
+    {{/if}}
+
+    <meta http-equiv="refresh" content="0;url={{{RedirectUrl}}}" />
+
+    <!--<link type="application/json+oembed"
+          href="https://bsyy.app/oembed?display_name=${encodeURIComponent(
+            post.author.displayName ?? " "
+          )}&handle=${encodeURIComponent(
+            post.author.handle
+          )}&avatar=${encodeURIComponent(post.author.avatar ?? " ")}" />-->
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+    </style>
+</head>
+</html>

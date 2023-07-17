@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Fxbsky": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53342;http://localhost:53343"
+    }
+  }
+}
