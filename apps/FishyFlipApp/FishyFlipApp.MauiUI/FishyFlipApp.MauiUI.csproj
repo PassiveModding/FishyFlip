@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0-ios;net7.0-maccatalyst;net7.0-android</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+    <UseMaui>true</UseMaui>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Drastic.Utilities" />
+    <PackageReference Include="CommunityToolkit.Maui" />
+    <PackageReference Include="AathifMahir.Maui.MauiIcons.Cupertino" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\FishyFlipApp\FishyFlipApp.csproj" />
+    <ProjectReference Include="..\..\..\src\FishyFlip\FishyFlip.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cupertino="clr-namespace:MauiIcons.Cupertino;assembly=MauiIcons.Cupertino"
+             x:Class="FishyFlipApp.MauiUI.Pages.DebugPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="20" RowDefinitions="Auto, Auto, *">
+            <Grid ColumnDefinitions="Auto, *">
+                <Image VerticalOptions="Start" 
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       Source="dotnet_bot.png"/>
+                <Grid Grid.RowDefinitions="Auto, Auto, Auto" Grid.Column="1">
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto, *">
+                        <Label FontAttributes="Bold" Text="Hoge"/>
+                        <Label Grid.Column="1" Text="Foobar · 33m"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu dui vivamus. At consectetur lorem donec massa sapien faucibus et molestie ac. Venenatis urna cursus eget nunc. Blandit turpis cursus in hac habitasse platea dictumst. Sit amet mauris commodo quis imperdiet. Volutpat est velit egestas dui id ornare. Aliquet risus feugiat in ante metus dictum. Fringilla est ullamcorper eget nulla facilisi. Eget nulla facilisi etiam dignissim diam quis enim."/>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, *, *, *" ColumnSpacing="5" Grid.Row="2">
+                        <Button ImageSource="{cupertino:Icon TextBubble}" Text="0"/>
+                        <Button Grid.Column="1" ImageSource="{cupertino:Icon Repeat}" Text="0"/>
+                        <Button Grid.Column="2" ImageSource="{cupertino:Icon Heart}" Text="0"/>
+                        <Button Grid.Column="3" ImageSource="{cupertino:Icon Ellipsis}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" ColumnDefinitions="Auto, *">
+                <Image VerticalOptions="Start" 
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       Source="dotnet_bot.png"/>
+                <Grid Grid.RowDefinitions="Auto, Auto, Auto, Auto" Grid.Column="1">
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto, *">
+                        <Label FontAttributes="Bold" Text="Hoge"/>
+                        <Label Grid.Column="1" Text="Foobar · 33m"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"/>
+                    </Grid>
+                    <Grid Margin="5" Grid.Row="2">
+                        <Border Stroke="Black"
+                                StrokeThickness="2"
+                                StrokeShape="RoundRectangle 5">
+                            <Grid RowDefinitions="100, Auto">
+                                <Image Aspect="AspectFill" Source="https://cdn.bsky.social/imgproxy/UxLVSRcfJSAGoIayA26CpNrOWCyBelsZEUGFEsX5bYQ/rs:fit:1000:1000:1:0/plain/bafkreifakv4yid4uijdr67ltzi7ns64aiqbf4f2v7oziokuyupatnrf3uu@jpeg" />
+                                <Grid Margin="5" RowDefinitions="Auto, Auto, Auto" Grid.Row="1">
+                                    <Label MaxLines="2" FontAttributes="Bold" Text="基本無料のモバイルゲームやソーシャルゲームは高額課金するプレイヤーを引きつけるためにギャンブル業界の手口を利用しているという指摘"/>
+                                    <Label MaxLines="1" FontSize="Caption" Grid.Row="1" LineBreakMode="TailTruncation" Text="https://gigazine.net/news/20230720-free-game-trick-of-gambling/"/>
+                                    <Label MaxLines="2" Grid.Row="2"  Text="SNSをプラットフォームとするソーシャルゲームや、スマートフォンでプレイできるモバイルゲームには、基本無料で遊べるものが多く存在します。しかし、基本無料でもゲームの進行を有利にするようなアイテムや収集品を手に入れるためにはお金を支払う必要があります。こうした基本無料のゲームを運営する企業は「プレイヤーにいかにお金を使わせるか」を戦略上重視しており、中にはギャンブル業界で使われている手法を取り入れているものもあって規制の対象になりつつあると、イギリス日刊紙のThe Guardianが取り上げています。" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, *, *, *" ColumnSpacing="5" Grid.Row="3">
+                        <Button ImageSource="{cupertino:Icon TextBubble}" Text="0"/>
+                        <Button Grid.Column="1" ImageSource="{cupertino:Icon Repeat}" Text="0"/>
+                        <Button Grid.Column="2" ImageSource="{cupertino:Icon Heart}" Text="0"/>
+                        <Button Grid.Column="3" ImageSource="{cupertino:Icon Ellipsis}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
