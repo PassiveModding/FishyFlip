@@ -4,6 +4,8 @@
 
 namespace FishyFlip.Tools.Json;
 
+#pragma warning disable IL2026 // Members annotated with 'RequiresUnreferencedCodeAttribute' require dynamic access otherwise can break functionality when trimming application code
+#pragma warning disable IL3050 // Calling members annotated with 'RequiresDynamicCodeAttribute' may break functionality when AOT compiling.
 public class EmbedConverter : JsonConverter<Embed>
 {
     public override Embed? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -125,6 +127,7 @@ public class EmbedConverter : JsonConverter<Embed>
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             PropertyNameCaseInsensitive = true,
+            TypeInfoResolver = options.TypeInfoResolver,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull | JsonIgnoreCondition.WhenWritingDefault,
             Converters =
             {
@@ -137,3 +140,6 @@ public class EmbedConverter : JsonConverter<Embed>
         });
     }
 }
+
+#pragma warning restore IL3050 // Calling members annotated with 'RequiresDynamicCodeAttribute' may break functionality when AOT compiling.
+#pragma warning restore IL2026 // Members annotated with 'RequiresUnreferencedCodeAttribute' require dynamic access otherwise can break functionality when trimming application code

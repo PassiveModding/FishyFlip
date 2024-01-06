@@ -17,17 +17,12 @@ public class ATProtocolOptions
         // HACK: Decodes a message to load the default Cid protocols.
         Cid.Decode("bafyreiezjt5bqt2xpcdfvisud7jrd4zuxygz4ssnuge3ddjcoptanvcnsa");
         this.HttpClient = new HttpClient(new HttpClientHandler { MaxRequestContentBufferSize = int.MaxValue });
-        this.JsonSerializerOptions = new JsonSerializerOptions()
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            PropertyNameCaseInsensitive = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull | JsonIgnoreCondition.WhenWritingDefault,
-        };
         this.Url = new Uri("https://bsky.social");
         this.JsonSerializerOptions = new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             PropertyNameCaseInsensitive = true,
+            TypeInfoResolver = SourceGenerationContext.Default,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull | JsonIgnoreCondition.WhenWritingDefault,
             Converters =
             {
