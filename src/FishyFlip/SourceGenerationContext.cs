@@ -2,6 +2,7 @@
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
+using FishyFlip.Models.Experimental.MackerelMedia;
 using FishyFlip.Models.WhiteWind;
 
 namespace FishyFlip;
@@ -197,6 +198,11 @@ namespace FishyFlip;
 [JsonSerializable(typeof(LogBeginConvo))]
 [JsonSerializable(typeof(DeletedMessageView))]
 [JsonSerializable(typeof(Ogp))]
+[JsonSerializable(typeof(CreateMediaRecord))]
+[JsonSerializable(typeof(MediaEmbed))]
+[JsonSerializable(typeof(Media))]
+[JsonSerializable(typeof(MediaRef))]
+[JsonSerializable(typeof(ListRecords<Models.Experimental.MackerelMedia.Media>))]
 internal partial class SourceGenerationContext : JsonSerializerContext
 {
 }

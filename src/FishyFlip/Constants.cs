@@ -276,6 +276,15 @@ public static class Constants
         public const string Mentions = "com.whtwnd.blog.mentions";
     }
 
+    public static class Experimental
+    {
+        public static class MackerelMediaTypes
+        {
+            public const string MediaEmbed = "com.mackerelmedia.embed";
+            public const string Media = "com.mackerelmedia.media";
+        }
+    }
+
     public static class WhiteWindVisibility
     {
         public const string Public = "public";

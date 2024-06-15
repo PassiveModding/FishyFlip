@@ -2,6 +2,8 @@
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
+using FishyFlip.Experimental;
+
 namespace FishyFlip;
 
 /// <summary>
@@ -79,6 +81,11 @@ public sealed class ATProtocol : IDisposable
     public WhiteWindBlog Blog => new(this);
 
     /// <summary>
+    /// Gets the Mackerel Media Protocol.
+    /// </summary>
+    public MackerelMedia Media => new(this);
+
+    /// <summary>
     /// Gets the ATProto Identity Protocol.
     /// </summary>
     public ATProtoIdentity Identity => new(this);
@@ -147,6 +154,11 @@ public sealed class ATProtocol : IDisposable
     /// Gets the base address for the underlying HttpClient.
     /// </summary>
     public Uri? BaseAddress => this.client.BaseAddress;
+
+    /// <summary>
+    /// Gets the current user's DID.
+    /// </summary>
+    public ATDid? CurrentUserDid => this.sessionManager?.Session?.Did;
 
     /// <summary>
     /// Gets the Internal HttpClient.
