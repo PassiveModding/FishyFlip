@@ -15,8 +15,9 @@ public class UnknownRecord : ATRecord
     /// Initializes a new instance of the <see cref="UnknownRecord"/> class.
     /// </summary>
     /// <param name="type">The type of the unknown record.</param>
+    [JsonConstructor]
     public UnknownRecord(string type)
+        : base(type)
     {
-        this.Type = type;
     }
 }

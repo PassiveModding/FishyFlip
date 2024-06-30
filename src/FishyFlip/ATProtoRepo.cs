@@ -294,6 +294,26 @@ public sealed class ATProtoRepo
         => await this.GetRecordAsync<ActorRecord>(Constants.ActorTypes.Profile, this.Options.SourceGenerationContext.ActorRecord, repo, "self", cid, cancellationToken);
 
     /// <summary>
+    /// Asynchronously retrieves an unknown record from a specified repository.
+    /// </summary>
+    /// <param name="collection">The name of the collection where the record is stored.</param>
+    /// <param name="repo">The ATIdentifier of the repository where the record is stored.</param>
+    /// <param name="rkey">The key of the record to retrieve.</param>
+    /// <param name="cid">Optional. The CID (Content Identifier) of the record. If specified, the method retrieves the record with this CID.</param>
+    /// <param name="cancellationToken">Optional. A CancellationToken that can be used to cancel the operation.</param>
+    /// <returns>A Task that represents the asynchronous operation. The task result contains a Result object with the retrieved record of type UnknownRecord, or null if not found.</returns>
+    public async Task<Result<FishyFlip.Models.UnknownRecord?>> GetUnknownRecordAsync(string collection, ATIdentifier repo, string rkey, ATCid? cid = null, CancellationToken cancellationToken = default)
+    {
+        string url = $"{Constants.Urls.ATProtoRepo.GetRecord}?collection={collection}&repo={repo}&rkey={rkey}";
+        if (cid is not null)
+        {
+            url += $"&cid={cid}";
+        }
+
+        return await this.Client.Get<FishyFlip.Models.UnknownRecord>(url, this.Options.SourceGenerationContext.UnknownRecord, this.Options.JsonSerializerOptions, cancellationToken, this.Options.Logger);
+    }
+
+    /// <summary>
     /// Uploads an image asynchronously.
     /// If data is not a valid image supported by Bluesky, it will throw an exception.
     /// </summary>
