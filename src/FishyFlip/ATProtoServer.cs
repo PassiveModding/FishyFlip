@@ -2,6 +2,8 @@
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
+using System.Web;
+
 namespace FishyFlip;
 
 /// <summary>
@@ -10,6 +12,7 @@ namespace FishyFlip;
 public sealed class ATProtoServer
 {
     private ATProtocol proto;
+    private OAuthConfiguration? oAuthConfiguration;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ATProtoServer"/> class.
@@ -23,6 +26,58 @@ public sealed class ATProtoServer
     private ATProtocolOptions Options => this.proto.Options;
 
     private HttpClient Client => this.proto.Client;
+
+    /// <summary>
+    /// Constructs the authorization URL.
+    /// </summary>
+    /// <param name="clientId">The client ID.</param>
+    /// <param name="redirectUri">The redirect URI.</param>
+    /// <param name="scopes">The scopes.</param>
+    /// <param name="state">The state.</param>
+    /// <param name="challenge">The challenge.</param>
+    /// <param name="challengeMethod">The challenge method. Default is "S256".</param>
+    /// <param name="cancellationToken">Cancelation Token.</param>
+    /// <returns>The authorization URL.</returns>
+    public async Task<string> ConstructAuthorizeUrlAsync(string clientId, string redirectUri, IEnumerable<string> scopes, string state, string challenge, string challengeMethod = "S256", CancellationToken cancellationToken = default)
+    {
+        if (!scopes.Any())
+        {
+            throw new ArgumentException("Scopes must not be empty.", nameof(scopes));
+        }
+
+        var oAuthConfig = (await this.GetOAuthConfigurationAsync(cancellationToken)).HandleResult();
+
+        var query = HttpUtility.ParseQueryString(string.Empty);
+        query.Add("response_type", "code");
+        query.Add("client_id", clientId);
+        query.Add("redirect_uri", redirectUri);
+        query.Add("scope", string.Join(" ", scopes.Select(x => x)));
+        query.Add("state", state);
+        query.Add("code_challenge", challenge);
+        query.Add("code_challenge_method", challengeMethod);
+        var uriBuilder = new UriBuilder(oAuthConfig!.AuthorizationEndpoint!)
+        {
+            Query = query.ToString(),
+        };
+        return uriBuilder.Uri.AbsoluteUri;
+    }
+
+    /// <summary>
+    /// Gets the OAuth configuration for the given Instance.
+    /// </summary>
+    /// <param name="cancellationToken">Cancelation Token.</param>
+    /// <returns><see cref="OAuthConfiguration"/>.</returns>
+    public async Task<Result<OAuthConfiguration?>> GetOAuthConfigurationAsync(CancellationToken cancellationToken = default)
+    {
+        if (this.oAuthConfiguration != null)
+        {
+            return this.oAuthConfiguration;
+        }
+
+        OAuthConfiguration? result = (await this.Client.Get<OAuthConfiguration>($"{this.Client.BaseAddress!.OriginalString}/{Constants.Urls.OAuth.WellKnown}", this.Options.SourceGenerationContext.OAuthConfiguration, this.Options.JsonSerializerOptions, cancellationToken)).HandleResult();
+
+        return this.oAuthConfiguration = result;
+    }
 
     /// <summary>
     /// Asynchronously creates a new session.

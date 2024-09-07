@@ -13,6 +13,11 @@ public static class Constants
 
     public static class Urls
     {
+        public static class OAuth
+        {
+            public const string WellKnown = "/.well-known/oauth-authorization-server";
+        }
+
         public static class ATProtoServer
         {
             public const string PublicApi = "https://public.api.bsky.app";

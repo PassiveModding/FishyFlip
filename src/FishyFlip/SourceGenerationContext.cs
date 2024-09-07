@@ -193,6 +193,8 @@ namespace FishyFlip;
 [JsonSerializable(typeof(UnknownRecordResponse))]
 [JsonSerializable(typeof(VideoEmbed))]
 [JsonSerializable(typeof(AspectRatio))]
+[JsonSerializable(typeof(Caption))]
+[JsonSerializable(typeof(OAuthConfiguration))]
 internal partial class SourceGenerationContext : JsonSerializerContext
 {
 }
